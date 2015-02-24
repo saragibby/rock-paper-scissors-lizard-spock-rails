@@ -1,0 +1,7 @@
+%h1 Shall we play a game?
+%h2= "Best of #{Game::MAX_ROUNDS}"
+
+= form_tag games_path do
+  = label_tag 'What is your name?'
+  = text_field_tag :name
+  = submit_tag 'Submit'

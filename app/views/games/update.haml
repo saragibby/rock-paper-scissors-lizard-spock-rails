@@ -1,0 +1,30 @@
+%h2= "ROUND #{@game.rounds.count}...."
+
+%p
+  = @game.player.name
+  picked
+  %strong= selection_name(@round.player1_selection)
+
+%p
+  = @game.player2.name
+  picked
+  %strong= selection_name(@round.player2_selection)
+
+%h3= get_result_desc(@round)
+
+%hr
+
+- if @game.rounds.count >= Game::MAX_ROUNDS
+  %h2 FINAL SCORE
+  %p
+    = @game.player.name
+    won
+    %strong= @game.player_wins.count
+  %p
+    = @game.player2.name
+    won
+    %strong= @game.player2_wins.count
+  %h3= "CHAMPION is.... #{@game.champion}"
+
+- else
+  = render 'play_round'

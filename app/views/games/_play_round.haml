@@ -1,0 +1,8 @@
+%h3= "Round #{@game.round_number}"
+
+= form_for @game do
+  = label_tag "Make selection: "
+  - Game::CHOICES.each do |key, value|
+    = radio_button_tag 'selection', key
+    = label_tag value[:name]
+  = submit_tag 'Submit'
